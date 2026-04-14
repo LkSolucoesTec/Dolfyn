@@ -1532,3 +1532,64 @@ footer {
         height: 45px;
     }
 }
+
+/* ==========================================================================
+   MENU HAMBÚRGUER (MOBILE)
+   ========================================================================== */
+
+/* Esconde o botão no Desktop */
+.menu-toggle {
+    display: none;
+    font-size: 2rem;
+    color: #FFFFFF; /* Ícone branco para combinar com o logo */
+    cursor: pointer;
+    z-index: 1000;
+}
+
+/* Regras apenas para Celular e Tablet (até 768px) */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block; /* Mostra o ícone */
+    }
+
+    /* Transforma a barra de links em um painel lateral */
+    .menu-links {
+        position: fixed;
+        top: 0;
+        right: -100%; /* Escondido fora da tela à direita */
+        width: 70%;
+        height: 100vh;
+        background-color: #050a12; /* Fundo escuro premium */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2.5rem;
+        transition: right 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        z-index: 999;
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Classe que o JavaScript usa para abrir o menu */
+    .menu-links.ativo {
+        right: 0;
+    }
+
+    /* Estilizando os botões do seu menu no celular */
+    .menu-links .nav-btn {
+        font-size: 1.3rem;
+        color: #FFFFFF;
+        text-decoration: none;
+        font-weight: 700;
+        transition: color 0.3s ease;
+    }
+
+    .menu-links .nav-btn:hover {
+        color: #F26A21; /* Laranja Dolfyn no hover */
+    }
+    
+    /* Troca o hambúrguer por um "X" (fa-times) quando está aberto */
+    .menu-toggle.ativo i::before {
+        content: "\f00d"; 
+    }
+}

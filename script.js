@@ -281,3 +281,26 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+// --- MENU HAMBÚRGUER --- //
+document.addEventListener("DOMContentLoaded", () => {
+    const mobileMenu = document.getElementById("mobile-menu");
+    const menuLinks = document.querySelector(".menu-links"); 
+    const links = document.querySelectorAll(".menu-links .nav-btn");
+
+    if (mobileMenu && menuLinks) {
+        // Alterna entre abrir e fechar ao clicar no ícone
+        mobileMenu.addEventListener("click", () => {
+            mobileMenu.classList.toggle("ativo");
+            menuLinks.classList.toggle("ativo");
+        });
+
+        // Fecha o menu suavemente quando clica em algum link
+        links.forEach(link => {
+            link.addEventListener("click", () => {
+                mobileMenu.classList.remove("ativo");
+                menuLinks.classList.remove("ativo");
+            });
+        });
+    }
+});
