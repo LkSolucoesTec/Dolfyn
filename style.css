@@ -1,0 +1,1534 @@
+/* variaveis e reset */
+:root {
+    --cor-fundo: rgba(250, 250, 250, 0.95); /* Fundo quase sólido para dar leitura em cima da imagem de fundo */
+    --cor-texto: #2C3338;
+    --cor-primaria: #0B3B60; /* Azul escuro corporativo */
+    --cor-destaque: #F26A21; /* Laranja vibrante */
+    --cor-secundaria: #E5E7EB;
+    --fonte-principal: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --espacamento-secao: 6rem;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--fonte-principal);
+    color: var(--cor-texto);
+    /* Imagem de fundo aplicada ao corpo do site inteiro */
+    background-color: #FAFAFA;
+    background-image: url('assets/fundo.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* header */
+header {
+    background-color: transparent; /* Deixa o fundo totalmente transparente */
+    padding: 1.5rem 5%;
+    position: absolute; /* Mudamos de sticky para absolute para ele ficar cravado no topo do Hero */
+    width: 100%; /* Garante que o menu ocupe a tela toda */
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    border-bottom: none; /* Remove a linha divisória */
+    box-shadow: none; /* Remove a sombra */
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.logo img {
+    height: 45px;
+    /* Se o novo logo for escuro, remova o filter: invert(1); se for branco, mantenha */
+    transition: transform 0.3s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.05);
+}
+
+.menu-links {
+    display: flex;
+    gap: 1rem;
+}
+
+/* Botões da Navbar ajustados para o fundo escuro/transparente */
+.nav-btn {
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    color: #FFFFFF; /* Texto branco para dar contraste com a imagem de fundo */
+    border: 2px solid rgba(255, 255, 255, 0.2); /* Borda branca bem suave e transparente */
+    background-color: transparent; /* Fundo transparente */
+    transition: all 0.3s ease;
+}
+
+.nav-btn:hover {
+    background-color: var(--cor-destaque);
+    border-color: var(--cor-destaque);
+    color: #FFFFFF;
+    transform: translateY(-2px);
+}
+
+/* secao hero */
+#hero {
+    padding: 6rem 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(11, 59, 96, 0.95); /* Azul com leve transparência */
+    color: #FFFFFF;
+}
+
+.hero-container {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    max-width: 1200px;
+    width: 100%;
+}
+
+.hero-content {
+    text-align: left;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    letter-spacing: -1px;
+    line-height: 1.1;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    margin-bottom: 2.5rem;
+    max-width: 500px;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 1.5rem;
+}
+
+.btn-solid {
+    padding: 1rem 2rem;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: #FFFFFF;
+    background-color: var(--cor-destaque);
+    border: 2px solid var(--cor-destaque);
+    transition: all 0.3s ease;
+}
+
+.btn-solid:hover {
+    background-color: #D85614;
+    border-color: #D85614;
+    transform: translateY(-2px);
+}
+
+.btn-outline-light {
+    padding: 1rem 2rem;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: #FFFFFF;
+    border: 2px solid #FFFFFF;
+    background-color: transparent;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-light:hover {
+    background-color: #FFFFFF;
+    color: var(--cor-primaria);
+    transform: translateY(-2px);
+}
+
+.hero-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+    object-fit: cover;
+}
+
+/* tipografia de secoes */
+section:not(#hero) {
+    padding: var(--espacamento-secao) 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: var(--cor-fundo); /* Aplica fundo sólido nas seções para leitura perfeita */
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--cor-primaria);
+    letter-spacing: -0.5px;
+}
+
+/* sobre a dolfyn */
+#sobre-a-dolfyn {
+    padding: 0;
+    max-width: 1200px;
+    margin: 6rem auto;
+}
+
+.sobre-reveal-container {
+    position: relative;
+    height: 650px;
+    border-radius: 20px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    background-color: var(--cor-primaria); /* Fundo de segurança */
+}
+
+/* Imagem de fundo */
+.sobre-image-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('assets/pessoas.jpg');
+    background-size: cover;
+    background-position: center;
+    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 1;
+}
+
+/* Filtro Laranja via CSS */
+.css-orange-filter {
+    position: absolute;
+    inset: 0;
+    background-color: var(--cor-destaque);
+    z-index: 2;
+    mix-blend-mode: multiply; /* O segredo para o efeito "pintado" */
+    opacity: 0.9;
+    transition: opacity 0.8s ease, transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Gradiente de leitura (Azul para transparente) */
+.sobre-reveal-container::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, 
+        rgba(11, 59, 96, 0.95) 0%, 
+        rgba(11, 59, 96, 0.7) 30%, 
+        transparent 100%);
+    z-index: 3;
+}
+
+.sobre-content {
+    position: relative;
+    z-index: 4;
+    padding: 0 5rem;
+    color: #FFFFFF;
+}
+
+.sobre-text-block {
+    max-width: 520px;
+}
+
+.tag {
+    color: var(--cor-destaque);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 0.75rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.p-destaque {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #FFFFFF;
+    line-height: 1.4;
+    margin-bottom: 1.5rem;
+}
+
+.sobre-features {
+    display: flex;
+    gap: 4rem;
+    margin-top: 3rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding-top: 2rem;
+}
+
+.feature-item .val {
+    display: block;
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: var(--cor-destaque);
+}
+
+.feature-item .lab {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.8;
+}
+
+/* Efeito de interação (Hover) */
+.sobre-reveal-container:hover .sobre-image-bg {
+    transform: scale(1.05);
+}
+
+.sobre-reveal-container:hover .css-orange-filter {
+    opacity: 0.3; /* Revela as cores originais da foto suavemente */
+}
+
+/* nossos servicos e programas */
+.servicos-grid, .programas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.servico-item, .programa-item {
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--cor-secundaria);
+    transition: padding-left 0.3s ease, border-color 0.3s ease;
+}
+
+.servico-item:hover, .programa-item:hover {
+    padding-left: 1rem;
+    border-bottom-color: var(--cor-destaque);
+}
+
+.programa-item h4, .servico-item h4 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--cor-primaria);
+}
+
+/* porque investir */
+#porque-investir {
+    background-color: #FFFFFF;
+    border: 1px solid var(--cor-secundaria);
+}
+
+#porque-investir ul {
+    list-style-type: none;
+    margin-top: 2rem;
+}
+
+#porque-investir li {
+    padding: 1rem 0;
+    font-size: 1.1rem;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    position: relative;
+    padding-left: 2.5rem;
+}
+
+#porque-investir li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--cor-destaque);
+    font-weight: bold;
+}
+
+/* portfolio */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.portfolio-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    filter: grayscale(15%);
+    transition: filter 0.4s ease, transform 0.4s ease;
+}
+
+.portfolio-item img:hover {
+    filter: grayscale(0%);
+    transform: scale(1.02);
+}
+
+/* nossos clientes */
+.clientes-logos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 4rem;
+    margin-top: 4rem;
+    align-items: center;
+}
+
+.clientes-logos img {
+    max-height: 40px;
+    opacity: 0.5;
+    filter: grayscale(100%);
+    transition: all 0.3s ease;
+}
+
+.clientes-logos img:hover {
+    opacity: 1;
+    filter: grayscale(0%);
+}
+
+/* depoimentos */
+.depoimento-card {
+    margin-top: 3rem;
+    padding: 3rem 0 3rem 3rem;
+    background-color: transparent;
+    border-left: 4px solid var(--cor-destaque);
+}
+
+blockquote {
+    font-size: 1.5rem;
+    font-style: italic;
+    color: var(--cor-primaria);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+cite {
+    font-weight: bold;
+    color: var(--cor-texto);
+    font-style: normal;
+}
+
+/* contacto / fale com a gente */
+.contato-container {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contato-info {
+    margin: 2rem 0;
+    font-size: 1.1rem;
+}
+
+.contato-info a {
+    color: var(--cor-primaria);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.contato-info a:hover {
+    color: var(--cor-destaque);
+}
+
+.cta-final {
+    padding: 1.2rem 3rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #FFFFFF;
+    background-color: var(--cor-destaque); 
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 15px rgba(242, 106, 33, 0.2);
+}
+
+.cta-final:hover {
+    background-color: #D85614;
+    transform: translateY(-2px);
+}
+
+/* rodape */
+footer {
+    background-color: var(--cor-primaria);
+    color: #FFFFFF;
+    padding: 4rem 5%;
+    text-align: center;
+    margin-top: 4rem;
+}
+
+.footer-logo img {
+    max-height: 50px;
+    margin-bottom: 1.5rem;
+}
+
+.footer-bottom p {
+    opacity: 0.7;
+    font-size: 0.9rem;
+}
+
+/* media queries */
+@media (max-width: 992px) {
+    .hero-container {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    .hero-content {
+        text-align: center;
+    }
+    .hero-content p {
+        margin: 0 auto 2.5rem;
+    }
+    .hero-actions {
+        justify-content: center;
+    }
+}
+
+/* nossos-servicos */
+#nossos-servicos {
+    padding: var(--espacamento-secao) 5%;
+    max-width: 1300px;
+    margin: 0 auto;
+    background: transparent !important; /* Garante fundo transparente */
+    box-shadow: none !important;
+}
+
+.servicos-header {
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.servicos-header h2 {
+    font-size: 3.5rem;
+    color: #FFFFFF;
+    margin-bottom: 1.5rem;
+}
+
+.servicos-header p {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Estrutura de Duas Colunas */
+.servicos-layout-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+/* Coluna dos Cards */
+.servicos-cards-col {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.card-neon-service {
+    position: relative;
+    padding: 2px;
+    border-radius: 12px;
+    overflow: hidden;
+    background: transparent;
+    transition: transform 0.3s ease;
+}
+
+.card-neon-service::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: conic-gradient(
+        transparent 0deg,
+        transparent 150deg,
+        var(--cor-destaque) 180deg,
+        transparent 210deg,
+        transparent 360deg
+    );
+    animation: rotate-neon 6s linear infinite;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+@keyframes rotate-neon {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.glass-inner {
+    position: relative;
+    z-index: 2;
+    background: rgba(11, 59, 96, 0.6); /* Transparência Azul Dolfyn */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 10px;
+    padding: 1.8rem 2rem;
+    text-align: left;
+}
+
+.glass-inner h4 {
+    color: #FFFFFF;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.card-neon-service:hover {
+    transform: translateX(10px);
+}
+
+/* Coluna da Imagem */
+.servicos-image-col {
+    position: sticky;
+    top: 120px; /* Mantém a imagem visível enquanto desce os cards */
+}
+
+.featured-image-link {
+    display: block;
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+}
+
+.featured-image-link img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.6s ease;
+}
+
+.image-hover-info {
+    position: absolute;
+    inset: 0;
+    background: rgba(242, 106, 33, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 1.4rem;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.featured-image-link:hover img {
+    transform: scale(1.05);
+}
+
+.featured-image-link:hover .image-hover-info {
+    opacity: 1;
+}
+
+/* Rodapé com Botão */
+.servicos-footer {
+    text-align: center;
+    margin-top: 5rem;
+}
+
+.btn-cta-linkedin {
+    display: inline-block;
+    padding: 1.2rem 3.5rem;
+    background: var(--cor-destaque);
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    box-shadow: 0 10px 30px rgba(242, 106, 33, 0.3);
+    transition: all 0.3s ease;
+}
+
+.btn-cta-linkedin:hover {
+    transform: scale(1.05);
+    background: #e05a1a;
+    box-shadow: 0 15px 40px rgba(242, 106, 33, 0.5);
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+    .servicos-layout-split {
+        grid-template-columns: 1fr;
+    }
+    .servicos-image-col {
+        position: static;
+        order: -1; /* Imagem fica em cima no mobile */
+        margin-bottom: 3rem;
+    }
+}
+
+/* portfolio-projetos */
+
+/* --- AJUSTE DE TEXTO DO PORTFÓLIO --- */
+.portfolio-glass-container .portfolio-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+/* Título muito mais imponente e Branco */
+.portfolio-glass-container .portfolio-header h2 {
+    font-size: clamp(2.5rem, 5vw, 4rem) !important; /* Cresce em telas grandes */
+    color: #FFFFFF !important; /* Força o branco contra o fundo azul */
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4); /* Sombra elegante para dar profundidade */
+}
+
+/* Subtítulo maior e mais legível */
+.portfolio-glass-container .portfolio-header p {
+    font-size: 1.35rem !important;
+    color: #F8F9FA !important; /* Branco levemente suave */
+    font-weight: 500;
+    max-width: 850px;
+    margin: 0 auto 4rem;
+    line-height: 1.6;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+#portfolio-projetos {
+    position: relative;
+    padding: var(--espacamento-secao) 5%;
+    background-color: transparent;
+}
+
+.portfolio-bg-azul {
+    position: absolute;
+    inset: 0;
+    background-color: var(--cor-primaria); /* Azul Dolfyn sólido como base */
+    z-index: 1;
+}
+
+.portfolio-glass-container {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 30px;
+    padding: 5rem;
+}
+
+/* Grid configurado para 2 colunas */
+.portfolio-gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+    margin-bottom: 4rem;
+}
+
+/* Configuração do Banner para ocupar as 2 colunas */
+.banner-wide {
+    grid-column: span 2;
+}
+
+/* Estilo dos Flip Cards */
+.flip-card {
+    perspective: 1500px;
+    cursor: pointer;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform-style: preserve-3d;
+    border-radius: 20px;
+    aspect-ratio: 16 / 10;
+}
+
+/* Ajuste de proporção para o banner largo */
+.banner-wide .flip-card-inner {
+    aspect-ratio: 21 / 8;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    inset: 0;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+}
+
+.flip-card-front img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.flip-card-back {
+    background: var(--cor-destaque);
+    color: white;
+    transform: rotateY(180deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flip-card-back a {
+    color: #FFFFFF;
+    font-weight: 700;
+    text-decoration: none;
+    padding: 1rem 2rem;
+    border: 2px solid #FFFFFF;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.flip-card-back a:hover {
+    background: #FFFFFF;
+    color: var(--cor-destaque);
+}
+
+/* Botão de Ação Instagram */
+.portfolio-footer {
+    text-align: center;
+}
+
+.btn-insta-call {
+    display: inline-block;
+    padding: 1.2rem 3.5rem;
+    background: linear-gradient(45deg, var(--cor-destaque), #FF3366);
+    color: #FFFFFF;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 50px;
+    transition: all 0.4s ease;
+    box-shadow: 0 10px 30px rgba(242, 106, 33, 0.3);
+}
+
+.btn-insta-call:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(242, 106, 33, 0.5);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .portfolio-gallery-grid {
+        grid-template-columns: 1fr;
+    }
+    .banner-wide {
+        grid-column: span 1;
+    }
+    .flip-card-inner, .banner-wide .flip-card-inner {
+        aspect-ratio: 16 / 9;
+    }
+}
+
+/* ==========================================================================
+   PROGRAMAS DE TREINAMENTO (DOBRA DA REUNIÃO)
+   ========================================================================== */
+#programas-treinamento {
+    position: relative !important;
+    padding: 8rem 5% !important;
+    /* Força o fundo escuro com a imagem assets/reuniao.jpg */
+    background: linear-gradient(135deg, rgba(11, 59, 96, 0.9) 0%, rgba(11, 59, 96, 0.95) 100%), 
+                url('assets/reuniao.jpg') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-attachment: fixed !important;
+    display: block !important;
+    overflow: visible !important;
+}
+
+.treinamento-container {
+    position: relative !important;
+    z-index: 10 !important;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.treinamento-header {
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+/* Força o título a ser Branco e Grande */
+.treinamento-header h2 {
+    font-size: 3.5rem !important;
+    color: #FFFFFF !important;
+    margin-bottom: 1.5rem !important;
+    font-weight: 800 !important;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+/* Força o texto de apoio a ser Branco Transparente */
+.treinamento-header p {
+    font-size: 1.2rem !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Link do WhatsApp */
+.treinamento-header a {
+    color: var(--cor-destaque) !important;
+    font-weight: 700 !important;
+    text-decoration: underline !important;
+}
+
+/* --- GRID E CARDS --- */
+.treinamento-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;
+    gap: 2.5rem !important;
+}
+
+.treinamento-card {
+    background: rgba(255, 255, 255, 0.08) !important;
+    backdrop-filter: blur(15px) !important;
+    -webkit-backdrop-filter: blur(15px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    border-radius: 20px !important;
+    padding: 3rem 2rem !important;
+    transition: all 0.4s ease !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+}
+
+.treinamento-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(242, 106, 33, 0.15) !important;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+.treinamento-icon svg {
+    width: 35px !important;
+    height: 35px !important;
+    color: var(--cor-destaque) !important;
+}
+
+.treinamento-card h3 {
+    font-size: 1.5rem !important;
+    color: #FFFFFF !important;
+    margin-bottom: 0.5rem !important;
+    line-height: 1.2;
+}
+
+.treinamento-sub {
+    color: var(--cor-destaque) !important;
+    font-weight: 700 !important;
+    font-size: 0.85rem !important;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.treinamento-card p {
+    color: rgba(255, 255, 255, 0.8) !important;
+    font-size: 1rem !important;
+    line-height: 1.6;
+    margin: 0 !important;
+    text-align: left !important;
+}
+
+/* Efeito Hover nos Cards */
+.treinamento-card:hover {
+    transform: translateY(-10px) !important;
+    background: rgba(255, 255, 255, 0.12) !important;
+    border-color: var(--cor-destaque) !important;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Responsividade para Celular */
+@media (max-width: 768px) {
+    #programas-treinamento {
+        background-attachment: scroll !important;
+        padding: 4rem 5% !important;
+    }
+    .treinamento-header h2 {
+        font-size: 2.5rem !important;
+    }
+}
+
+/* ==========================================================================
+   PORQUE INVESTIR EM TREINAMENTO
+   ========================================================================== */
+
+#porque-investir {
+    padding: var(--espacamento-secao) 5%;
+    max-width: 1250px;
+    margin: 4rem auto;
+    background: transparent !important; 
+    box-shadow: none !important;
+    border: none !important;
+}
+
+/* O Layout de 2 colunas travado (Texto Esquerda / Imagem Direita) */
+.investir-container {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr; /* Garante espaço exato para a imagem ao lado */
+    gap: 5rem;
+    align-items: center;
+}
+
+/* 1. TÍTULO - Destaque absoluto e afastado */
+.investir-content h2 {
+    font-size: 3.2rem !important;
+    color: #FFFFFF !important; /* Força o branco para não sumir no fundo */
+    margin-bottom: 3.5rem !important; /* Afasta bem o título dos cards */
+    line-height: 1.2;
+    text-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); /* Sombra para dar leitura perfeita */
+}
+
+/* NOVA ESTRUTURA DE CARDS DISCRETOS */
+.investir-lista-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem; 
+}
+
+/* 2. CARDS - Muito mais sutis, escuros e discretos */
+.investir-card {
+    position: relative;
+    background: rgba(0, 0, 0, 0.25); /* Fundo super discreto e escurecido */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05); /* Borda quase invisível */
+    border-radius: 8px; /* Menos arredondado para ficar mais sério */
+    padding: 1.5rem 2.5rem;
+    overflow: hidden;
+    transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+    cursor: default;
+}
+
+.investir-card p {
+    position: relative;
+    z-index: 2;
+    color: #E5E7EB; /* Branco levemente acinzentado para não berrar na tela */
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Brilho Laranja super suave na direita do card */
+.investir-card-glow {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 150px;
+    background: radial-gradient(circle at right center, rgba(242, 106, 33, 0.15), transparent 70%);
+    z-index: 1;
+    opacity: 0.6;
+    transition: opacity 0.4s ease;
+}
+
+/* Hover Discreto dos Cards */
+.investir-card:hover {
+    transform: translateX(8px); 
+    background: rgba(11, 59, 96, 0.4); /* Leve tom de azul Dolfyn ao passar o mouse */
+    border-color: rgba(242, 106, 33, 0.3);
+}
+
+.investir-card:hover .investir-card-glow {
+    opacity: 1;
+}
+
+/* 3. IMAGEM DO LADO DIREITO */
+.investir-visual {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.investir-imagem-wrapper {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    width: 100%;
+}
+
+.investir-imagem-wrapper img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 16px;
+    transition: transform 0.6s ease;
+}
+
+/* Efeito de lente de vidro sobre a imagem */
+.investir-glow-borda {
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.15);
+    pointer-events: none;
+    z-index: 2;
+}
+
+.investir-imagem-wrapper:hover img {
+    transform: scale(1.05); /* Zoom suave na imagem */
+}
+
+/* 4. RESPONSIVIDADE */
+@media (max-width: 992px) {
+    .investir-container {
+        grid-template-columns: 1fr; /* Quebra para 1 coluna no celular */
+        gap: 4rem;
+    }
+    .investir-content h2 {
+        font-size: 2.5rem !important;
+        margin-bottom: 2.5rem !important;
+    }
+}
+
+/* --- NOSSOS CLIENTES (Carrossel Infinito) --- */
+#nossos-clientes {
+    padding: 6rem 0 !important;
+    background-color: #F4F7FA !important; 
+    overflow: hidden; /* Esconde o que sai da tela */
+}
+
+.clientes-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    padding: 0 5%;
+}
+
+.carousel-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Faixa de movimento */
+.carousel-track {
+    display: flex;
+    width: max-content; /* Largura total dos itens */
+    gap: 1.5rem;
+    animation: scroll-left 50s linear infinite; /* Velocidade suave */
+}
+
+.carousel-track.reverse {
+    animation: scroll-right 50s linear infinite;
+}
+
+/* Card do Logo - Mesmos tamanhos para todos */
+.cliente-item {
+    background: #FFFFFF; 
+    border-radius: 10px;
+    width: 200px; 
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.2rem;
+    box-shadow: 0 4px 10px rgba(11, 59, 96, 0.04);
+    flex-shrink: 0;
+    
+    /* Suavidade para o efeito de destaque */
+    transition: background 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
+    border: 1px solid transparent;
+}
+
+.cliente-item img {
+    max-width: 85%;
+    max-height: 85%;
+    object-fit: contain;
+    filter: grayscale(100%);
+    opacity: 0.5;
+    transition: all 0.4s ease;
+}
+
+/* 2. HOVER INDIVIDUAL: O card se destaca enquanto caminha */
+.cliente-item:hover {
+    background: #FFFFFF;
+    border-color: rgba(242, 106, 33, 0.4); /* Borda laranja acende */
+    box-shadow: 0 10px 25px rgba(242, 106, 33, 0.15); /* Brilho laranja sutil */
+    transform: scale(1.05); /* Card cresce levemente */
+    z-index: 10; /* Garante que fique por cima dos vizinhos */
+}
+
+.cliente-item:hover img {
+    filter: grayscale(0%);
+    opacity: 1;
+    transform: scale(1.1); /* Logo ganha destaque interno */
+}
+
+/* Keyframes da animação infinita */
+@keyframes scroll-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-50% - 0.75rem)); } /* Metade da largura + metade do gap */
+}
+
+@keyframes scroll-right {
+    0% { transform: translateX(calc(-50% - 0.75rem)); }
+    100% { transform: translateX(0); }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .cliente-item {
+        width: 150px;
+        height: 80px;
+    }
+    .carousel-track {
+        animation-duration: 30s;
+    }
+}
+
+/* --- DEPOIMENTOS --- */
+#depoimentos {
+    padding: 8rem 5%;
+    background: transparent !important;
+    position: relative;
+}
+
+.depoimentos-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.depoimentos-header {
+    margin-bottom: 5rem;
+}
+
+.depoimentos-header h2 {
+    font-size: 3rem;
+    color: #FFFFFF;
+    margin-bottom: 1rem;
+}
+
+.depoimentos-header p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.2rem;
+}
+
+/* Timeline */
+.timeline-wrapper {
+    position: relative;
+    padding-left: 80px;
+}
+
+/* Linha de fundo (cinza) */
+.timeline-line {
+    position: absolute;
+    left: 24px;
+    top: 0;
+    width: 2px;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Linha que carrega (preenchimento) */
+.timeline-progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0; /* Começa em 0, GSAP anima isso */
+    background: linear-gradient(to bottom, #F26A21, #40E0D0, #00BFFF);
+    box-shadow: 0 0 15px rgba(242, 106, 33, 0.5);
+}
+
+.timeline-items {
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+}
+
+.timeline-item {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    opacity: 0; /* GSAP anima isso */
+    transform: translateX(30px); /* GSAP anima isso */
+}
+
+/* O Círculo com o Número */
+.timeline-number {
+    position: absolute;
+    left: -80px;
+    top: 0;
+    width: 50px;
+    height: 50px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 1.2rem;
+    background: #050a12; /* Fundo escuro para destacar */
+    z-index: 5;
+    transition: all 0.5s ease;
+}
+
+/* Conteúdo do Depoimento */
+.timeline-content p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.timeline-content strong {
+    color: #FFFFFF;
+}
+
+.timeline-content span {
+    display: block;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 1rem;
+    font-style: italic;
+}
+
+/* Ajuste Mobile */
+@media (max-width: 768px) {
+    .timeline-wrapper { padding-left: 60px; }
+    .timeline-number { left: -60px; width: 40px; height: 40px; font-size: 1rem; }
+    .timeline-line { left: 19px; }
+}
+
+/* --- SEÇÃO CONTATO CTA --- */
+/* --- CONTATO CTA (FORÇANDO TEXTO BRANCO) --- */
+#contato-cta {
+    padding: 100px 5% !important;
+    background: transparent !important;
+    text-align: center;
+}
+
+/* Força o Título H2 em Branco */
+#contato-cta h2 {
+    color: #FFFFFF !important;
+    font-size: clamp(2.2rem, 5vw, 3rem) !important;
+    margin-bottom: 20px !important;
+    font-weight: 800 !important;
+}
+
+/* Força o Parágrafo em Branco (com leve transparência para elegância) */
+#contato-cta p {
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-size: 1.2rem !important;
+    margin-bottom: 40px !important;
+}
+
+/* Força o texto "Fique por dentro..." em Branco */
+#contato-cta .canais-label {
+    color: rgba(255, 255, 255, 0.6) !important;
+    display: block;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.cta-botoes-principais {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 80px;
+}
+
+/* Garante que o texto dentro dos cards das redes sociais também fique branco */
+#contato-cta .canal-card span, 
+#contato-cta .canal-card strong {
+    color: #FFFFFF !important;
+}
+
+/* BOTÕES DE CONTRATAÇÃO */
+.btn-cta-principal {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    color: #FFFFFF !important;
+    padding: 18px 35px !important;
+    border-radius: 50px !important;
+    font-weight: 700 !important;
+    text-decoration: none !important;
+    transition: all 0.3s ease !important;
+    font-size: 1.1rem !important;
+}
+
+/* WhatsApp Pulse */
+.btn-cta-principal.whatsapp {
+    background: #25D366 !important;
+    animation: pulse-green 2s infinite;
+}
+
+/* Email Pulse Laranja */
+.btn-cta-principal.email-btn {
+    background: #F26A21 !important; /* Laranja Dolfyn */
+    animation: pulse-orange 2s infinite;
+}
+
+@keyframes pulse-green {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+}
+
+@keyframes pulse-orange {
+    0% { box-shadow: 0 0 0 0 rgba(242, 106, 33, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(242, 106, 33, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(242, 106, 33, 0); }
+}
+
+/* CARDS DAS REDES SOCIAIS */
+.canais-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.canal-card {
+    text-decoration: none !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.canal-icon {
+    font-size: 3rem !important;
+    margin-bottom: 10px;
+    transition: transform 0.4s ease, color 0.4s ease;
+    color: #FFFFFF; /* Cor base branca */
+}
+
+.canal-card span {
+    color: #FFFFFF;
+    font-weight: 600;
+    font-size: 0.9rem;
+    opacity: 0.7;
+    transition: opacity 0.4s ease;
+}
+
+/* HOVERS COM CORES OFICIAIS */
+.canal-card:hover { transform: translateY(-10px); }
+.canal-card:hover span { opacity: 1; }
+.canal-card:hover .canal-icon { transform: scale(1.3); }
+
+/* Cores no Hover */
+.instagram:hover .canal-icon { color: #E4405F !important; }
+.linkedin:hover .canal-icon { color: #0077B5 !important; }
+.whatsapp-small:hover .canal-icon { color: #25D366 !important; }
+.email-small:hover .canal-icon { color: #F26A21 !important; }
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .cta-botoes-principais { flex-direction: column; }
+    .canais-grid { gap: 25px; }
+}
+
+/* ==========================================================================
+   FOOTER (RODAPÉ FINAL)
+   ========================================================================== */
+#main-footer {
+    padding: 60px 5% !important;
+    background-color: #03070d !important; /* Mais escuro que a seção anterior */
+    text-align: center !important;
+    border-top: 1px solid rgba(255, 255, 255, 0.05) !important;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-logo {
+    max-width: 130px !important;
+    height: auto !important;
+    margin-bottom: 25px !important;
+    /* Se o logo for colorido, opcionalmente use brightness(0) invert(1) para deixá-lo branco */
+}
+
+.footer-container p {
+    font-size: 0.85rem !important;
+    color: rgba(255, 255, 255, 0.3) !important;
+    letter-spacing: 0.5px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .canais-grid { flex-direction: column !important; align-items: center !important; }
+    .canal-card { width: 100% !important; max-width: 350px; }
+}
+
+/* ==========================================================================
+   BOTÃO VOLTAR AO TOPO
+   ========================================================================== */
+#btn-voltar-topo {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: #F26A21; /* Laranja Dolfyn */
+    color: #FFFFFF;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(242, 106, 33, 0.4);
+    z-index: 999; /* Garante que fique por cima de todas as seções */
+    
+    /* Escondido por padrão */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    
+    /* Centraliza o ícone */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Classe adicionada pelo JavaScript quando o usuário desce a tela */
+#btn-voltar-topo.mostrar {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Efeito Hover */
+#btn-voltar-topo:hover {
+    background-color: #ff7d3b;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(242, 106, 33, 0.6);
+}
+
+/* Ajuste para Celular */
+@media (max-width: 768px) {
+    #btn-voltar-topo {
+        bottom: 20px;
+        right: 20px;
+        width: 45px;
+        height: 45px;
+    }
+}
